@@ -1,0 +1,16 @@
+namespace: dsagar
+name: sd-template-parameters
+version: "1"
+description: An example template for testing parameters
+maintainer: dsagar@yahooinc.com
+config:
+  image: node-8
+  parameters:
+    music: [ "country", "hip hop" ]
+    color: [ "black", "white" ]
+    sports: [ "baseball", "basketball" ]
+  steps:
+    - step_print_template_parameters: |
+        echo music = $(meta get parameters.music)
+        echo color = $(meta get parameters.color)
+        echo sports = $(meta get parameters.sports)
