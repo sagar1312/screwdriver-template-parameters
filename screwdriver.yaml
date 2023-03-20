@@ -6,11 +6,11 @@ jobs:
     requires: [~pr, ~commit]
     steps:
       - install_prerequisites: npm install -g screwdriver-template-main
-      - validate_default_template: template-validate
+      - validate_default_template: ./node_modules/.bin/template-validate
 
   publish:
     requires: [ validate ]
     steps:
       - install_prerequisites: npm install -g screwdriver-template-main
-      - publish: template-publish
-      - autotag: template-tag --name sagar1312/sd-template-parameters --tag latest
+      - publish: ./node_modules/.bin/template-publish
+      - autotag: ./node_modules/.bin/template-tag --name sagar1312/sd-template-parameters --tag latest
